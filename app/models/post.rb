@@ -6,6 +6,8 @@ class Post < ActiveRecord::Base
 
   before_validation :apply_title_format
 
+  has_many :comments
+
 private
 
   def apply_title_format
