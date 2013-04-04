@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-  http_basic_authenticate_with :name => "admin", :password => "admin123", :only => [:edit, :update, :destroy]
+  skip_before_filter :require_admin, :except => [:edit, :update, :destroy]
+
   before_filter :load_post
   # GET /comments
   # GET /comments.json

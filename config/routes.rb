@@ -1,5 +1,10 @@
 MiniBlog::Application.routes.draw do
   
+  resource :session, :only => [:new, :create, :destroy]
+  
+  resources :admins
+
+
   resources :posts do
     resources :comments
   end
