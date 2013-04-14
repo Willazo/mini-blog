@@ -1,5 +1,5 @@
 <%= render :partial => 'post', :object => @post %>
-<h4>Comments</h4>
+<h4><a name= "comments"></a>Comments</h4>
 <%= render :partial => 'comments/comment',
            :collection => @post.comments.order("created_at ASC") %>
 <%= render :partial => 'comments/form' %>

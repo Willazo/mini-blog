@@ -1,5 +1,5 @@
 <h1>Log In</h1>
-<%= form_for Admin.new, url: session_path do |f| %>
+<%= form_for Admin.new, url: session_path do |f| -%>
   <p><%= alert %></p>
 
   <div>
@@ -11,6 +11,6 @@
   	<%= f.password_field :password %>
   </div>
   <div>
-  	<%= f.submit "Log In" %>
+  	<%= f.submit "Log In", :class => 'btn btn-primary' %>
   </div>
-  <% end %>
+  <% end -%>
