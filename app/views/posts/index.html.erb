@@ -1,29 +1,6 @@
-<h1>Listing posts</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Body</th>
-    <th>Category</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @posts.each do |post| %>
-  <tr>
-    <td><%= post.title %></td>
-    <td><%= post.body %></td>
-    <td><%= post.category %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <td><%= link_to pluralize(post.comments.count, "comment"), post_comments_path(post) %></td>
-  </tr>
+<%= link_to new_post_path, :class => 'btn btn-success pull-right' do %>
+  <i class="icon-edit"></i> New Post
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Post', new_post_path %>
+<section>
+  <%= render :partial => 'post', :collection => @posts %>
+</section>

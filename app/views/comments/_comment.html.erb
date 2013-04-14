@@ -1,0 +1,12 @@
+<blockquote>
+  <small>
+    <strong><%= comment.author %></strong>
+    -
+    <%=l comment.created_at, :format => :long %>
+    -
+    <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+    -
+    <%= link_to 'Destroy', [@post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
+  </small>
+  <%= simple_format comment.body %>
+</blockquote>

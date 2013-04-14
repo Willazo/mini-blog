@@ -1,24 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @post.category %>
-</p>
-
-<p>
-  <b>Body:</b>
-  <%= @post.body %>
-</p>
-
-<p>
-  <b>Comments:</b>
-  <%= link_to pluralize(@post.comments.count, "comment"), post_comments_path(@post) %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= render :partial => 'post', :object => @post %>
+<h4>Comments</h4>
+<%= render :partial => 'comments/comment',
+           :collection => @post.comments.order("created_at ASC") %>
+<%= render :partial => 'comments/form' %>

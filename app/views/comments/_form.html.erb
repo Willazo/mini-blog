@@ -1,8 +1,10 @@
-<%= form_for([@post, @comment]) do |f| %>
+<%= form_for([@post, @comment], :html => {:class => 'well span9'}) do |f| %>
+  <h4><i class="icon-plus"></i>Add a comment:</h4>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
+      <h2>
+        <%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:
+      </h2>
       <ul>
       <% @comment.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -12,14 +14,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :author %><br />
-    <%= f.text_field :author %>
+    <%= f.label :author %>
+    <%= f.text_field :author, :class => 'span9' %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.label :body %>
+    <%= f.text_area :body, :class => 'span9', :rows => 5 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-primary pull-right'%>
   </div>
 <% end %>

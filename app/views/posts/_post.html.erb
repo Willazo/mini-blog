@@ -1,0 +1,15 @@
+<article pubdate>
+  <header>
+    <h1><%= link_to post.title, post %></h1>
+    <p>Created on <time><%=l post.created_at, :format => :long %></time></p>
+  </header>
+
+  <%=simple_format post.body %>
+
+  <footer>
+    <%= link_to 'Show', post %> |
+    <%= link_to 'Edit', edit_post_path(post) %> |
+    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %> |
+    <%= link_to pluralize(post.comments.count, "comment"), post_comments_path(post) %>
+  </footer>
+</article>
