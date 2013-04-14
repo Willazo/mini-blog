@@ -17,9 +17,10 @@ class ApplicationController < ActionController::Base
   private
 
   def require_admin
+
   	unless current_admin
   		redirect_to new_session_path, alert: "Log In required to continue"
   	end
   end
-  
+
 end

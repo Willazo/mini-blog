@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MiniBlog</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="menu" style="float: right">
+  <%= link_to "Posts", posts_path %>
+  |
+  <% if current_admin %>
+    <%= link_to "Admins", admins_path %>
+    |
+    <%= link_to "Log out", session_path, :method => :delete, :confirm => "Are you sure?" %>
+  <% else %>
+    <%= link_to "Log in", new_session_path %>
+  <% end %>
+</div>
+
+<%= yield %>
+
+</body>
+</html>
